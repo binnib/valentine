@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Valentine ❤️</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffe6eb;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h1 {
+      color: #e63946;
+      font-size: 26px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ccc;
+    }
+
+    #hoverMsg {
+      margin: 15px 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #b3003b;
+      min-height: 30px;
+    }
+
+    #afterYes {
+      display: none;
+    }
+
+    #afterYes img {
+      width: 260px;
+      border-radius: 20px;
+      margin-top: 15px;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <!-- ✅ Added ID here -->
+    <h1 id="questionText">
+      Valentine week began. I am asking early: will you be mine? ❤️
+    </h1>
+
+    <div id="hoverMsg"></div>
+
+    <div id="btns">
+      <button class="yes" id="yesBtn">Yes 💕</button>
+      <button class="no" onclick="alert('Hmm... come on 😏')">No 🙃</button>
+    </div>
+
+    <div id="afterYes">
+      <h4 style="color: #e63946;">
+        Saying yes means unlimited love, handle dramas, and my full attention. Hope you can handle it!! 😜💕
+      </h4>
+
+      <img src="couple_iamge.png" alt="My Love 💕">
+
+      <p>Forever starts now 😘</p>
+    </div>
+
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const hoverMsg = document.getElementById("hoverMsg");
+
+    const messages = [
+      "Are you sure? 👀",
+      "Careful… this is forever 💍",
+      "No refunds 😜"
+    ];
+
+    let msgIndex = 0;
+
+    yesBtn.addEventListener("mouseenter", () => {
+      if (msgIndex < messages.length) {
+        hoverMsg.textContent = messages[msgIndex];
+        msgIndex++;
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.getElementById("btns").style.display = "none";
+      hoverMsg.style.display = "none";
+      document.getElementById("questionText").style.display = "none"; // ✅ hides question
+      document.getElementById("afterYes").style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
